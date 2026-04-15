@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 30 50% 98%;
     --foreground: 218 30% 14%;
 
     --card: 0 0% 100%;
@@ -18,7 +18,7 @@
     --primary: 218 50% 20%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 20% 97%;
+    --secondary: 30 30% 95%;
     --secondary-foreground: 218 30% 14%;
 
     --muted: 220 14% 96%;
@@ -36,7 +36,7 @@
 
     --radius: 0.75rem;
 
-    --cream: 40 33% 97%;
+    --cream: 30 40% 96%;
     --cream-dark: 40 20% 92%;
     --orange-glow: 27 90% 58%;
     --dark-blue: 218 50% 20%;

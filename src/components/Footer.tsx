@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
         <div className="sm:col-span-2 lg:col-span-1">
-          <img src={logo} alt="B-Panacea Education" className="h-20 sm:h-24 w-auto object-contain mb-5 brightness-200" />
+          <img src={logo} alt="B-Panacea Education" className="h-16 sm:h-20 w-auto object-contain mb-5 brightness-200" />
           <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-xs">
             Expert one-to-one tutoring for UK school pupils aged 5–18. Study. Think. Create and Grow.
           </p>
