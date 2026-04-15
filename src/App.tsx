@@ -9,6 +9,7 @@ import SplashScreen from "@/components/SplashScreen";
 import Index from "./pages/Index.tsx";
 import Questionnaire from "./pages/Questionnaire.tsx";
 import Privacy from "./pages/Privacy.tsx";
+import Admin from "./pages/Admin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
