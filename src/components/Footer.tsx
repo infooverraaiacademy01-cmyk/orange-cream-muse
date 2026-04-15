@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
         <div className="sm:col-span-2 lg:col-span-1">
-          <img src={logo} alt="B-Panacea Educational Consult" className="h-20 sm:h-24 w-auto object-contain mb-5 brightness-200" />
+          <img src={logo} alt="B-Panacea Education" className="h-20 sm:h-24 w-auto object-contain mb-5 brightness-200" />
           <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-xs">
             Expert one-to-one tutoring for UK school pupils aged 5–18. Study. Think. Create and Grow.
           </p>
@@ -24,9 +24,9 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-bold text-sm mb-5 tracking-wide">Contact</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/50">
-            <li>info@bpanacea.co.uk</li>
-            <li>+44 (0) 000 000 0000</li>
-            <li>United Kingdom</li>
+            <li>bpanacea123@gmail.com</li>
+            <li>+44 7774 587556</li>
+            <li>163 Brownhill Road, London, SE6 2BQ</li>
           </ul>
         </div>
 
@@ -44,7 +44,7 @@ const Footer = () => (
 
       <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
         <p className="text-xs text-primary-foreground/30">
-          © {new Date().getFullYear()} B-Panacea Educational Consult. All rights reserved.
+          © {new Date().getFullYear()} B-Panacea Education. All rights reserved.
         </p>
       </div>
     </div>
