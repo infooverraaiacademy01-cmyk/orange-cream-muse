@@ -1,19 +1,36 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
-const navItems = ["About", "Services", "Why Us", "Contact"];
+const navItems = [
+  { label: "About", target: "about" },
+  { label: "Services", target: "services" },
+  { label: "Why Us", target: "why-us" },
+  { label: "Contact", target: "contact" },
+];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const scrollToSection = (target: string) => {
+    setMobileOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: target } });
+    } else {
+      const el = document.getElementById(target);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
@@ -24,23 +41,23 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-16 sm:h-18 lg:h-20">
-        <a href="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <img
             src={logo}
             alt="B-Panacea Education"
             className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-        </a>
+        </Link>
 
         <ul className="hidden md:flex items-center gap-8 lg:gap-10">
           {navItems.map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+            <li key={item.label}>
+              <button
+                onClick={() => scrollToSection(item.target)}
                 className="relative text-sm font-semibold tracking-wide text-foreground/60 hover:text-primary transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
               >
-                {item}
-              </a>
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>
@@ -84,10 +101,13 @@ const Navbar = () => {
           >
             <ul className="flex flex-col px-6 py-8 gap-5">
               {navItems.map((item, i) => (
-                <motion.li key={item} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
-                  <a href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMobileOpen(false)} className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors">
-                    {item}
-                  </a>
+                <motion.li key={item.label} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
+                  <button
+                    onClick={() => scrollToSection(item.target)}
+                    className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </button>
                 </motion.li>
               ))}
               <li className="flex flex-col gap-3 mt-3">
