@@ -27,7 +27,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="B-Panacea Educational Consult"
-            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
