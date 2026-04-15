@@ -1,15 +1,14 @@
 import AnimatedSection from "./AnimatedSection";
-import { GraduationCap, Globe } from "lucide-react";
 
 const cards = [
   {
-    icon: GraduationCap,
+    emoji: "🎓",
     title: "UK School Pupils",
     items: ["Ages 5–18", "KS1 to KS5", "Tailored academic support"],
     accent: "bg-primary",
   },
   {
-    icon: Globe,
+    emoji: "🌍",
     title: "International Learners",
     items: ["Online tutoring", "IELTS preparation", "Study abroad guidance"],
     accent: "bg-accent",
@@ -31,9 +30,7 @@ const WhoWeSupport = () => (
           <AnimatedSection key={c.title} delay={i * 0.15}>
             <div className="card-premium p-7 sm:p-9 h-full relative overflow-hidden group">
               <div className={`absolute top-0 left-0 w-full h-1 ${c.accent}`} />
-              <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
-                <c.icon className="w-7 h-7 text-accent" />
-              </div>
+              <span className="text-5xl mb-6 block">{c.emoji}</span>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-5">{c.title}</h3>
               <ul className="space-y-4">
                 {c.items.map((item) => (

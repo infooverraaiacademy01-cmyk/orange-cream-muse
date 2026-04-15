@@ -1,12 +1,11 @@
 import AnimatedSection from "./AnimatedSection";
-import { Heart, Dumbbell, Music, BookOpen, Plane } from "lucide-react";
 
 const services = [
-  { icon: Heart, title: "Special Educational Needs (SEN) Tuition", desc: "Tailored support for pupils with special educational needs." },
-  { icon: Dumbbell, title: "Physical Education (PE) Tuition", desc: "Structured PE sessions to support physical development." },
-  { icon: Music, title: "Musical Instrument Tuition", desc: "Learn instruments with skilled, patient music tutors." },
-  { icon: BookOpen, title: "KS1 – KS5 Maths, English & Science", desc: "Core subject support across all UK key stages." },
-  { icon: Plane, title: "IELTS & Study Abroad Support", desc: "Preparation for international study and IELTS exams." },
+  { letter: "S", title: "Special Educational Needs (SEN) Tuition", desc: "Tailored support for pupils with special educational needs." },
+  { letter: "P", title: "Physical Education (PE) Tuition", desc: "Structured PE sessions to support physical development." },
+  { letter: "M", title: "Musical Instrument Tuition", desc: "Learn instruments with skilled, patient music tutors." },
+  { letter: "K", title: "KS1 – KS5 Maths, English & Science", desc: "Core subject support across all UK key stages." },
+  { letter: "I", title: "IELTS & Study Abroad Support", desc: "Preparation for international study and IELTS exams." },
 ];
 
 const ServicesSection = () => (
@@ -24,8 +23,8 @@ const ServicesSection = () => (
         {services.map((s, i) => (
           <AnimatedSection key={s.title} delay={i * 0.1}>
             <div className="card-premium p-6 sm:p-8 h-full group">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/20">
-                <s.icon className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
+              <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-accent group-hover:shadow-lg group-hover:shadow-accent/20 group-hover:scale-110">
+                <span className="font-display text-2xl font-bold text-primary-foreground">{s.letter}</span>
               </div>
               <h3 className="font-display text-lg sm:text-xl font-bold text-primary mb-2 leading-snug">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
