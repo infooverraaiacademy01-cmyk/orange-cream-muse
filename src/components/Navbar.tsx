@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navItems = ["About", "Services", "Why Us", "Contact"];
@@ -22,16 +23,16 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-22 lg:h-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-16 sm:h-18 lg:h-20">
         <a href="/" className="flex items-center gap-2 group">
           <img
             src={logo}
             alt="B-Panacea Education"
-            className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-10">
           {navItems.map((item) => (
             <li key={item}>
               <a
@@ -44,12 +45,22 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex px-7 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold tracking-wide hover:bg-dark-blue-light transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
-        >
-          Book a Tutor
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://www.cognitoforms.com/BPanaceaLimited/BPanaceaLimitedTutorApplication"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full border-2 border-primary/20 text-primary text-sm font-bold tracking-wide hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+          >
+            Register for Work
+          </a>
+          <Link
+            to="/questionnaire"
+            className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold tracking-wide hover:bg-dark-blue-light transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
+          >
+            Get Started
+          </Link>
+        </div>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -79,10 +90,19 @@ const Navbar = () => {
                   </a>
                 </motion.li>
               ))}
-              <li>
-                <a href="#contact" onClick={() => setMobileOpen(false)} className="inline-flex mt-3 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg">
-                  Book a Tutor
+              <li className="flex flex-col gap-3 mt-3">
+                <a
+                  href="https://www.cognitoforms.com/BPanaceaLimited/BPanaceaLimitedTutorApplication"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex justify-center px-7 py-3.5 rounded-full border-2 border-primary/20 text-primary font-bold text-base"
+                >
+                  Register for Work
                 </a>
+                <Link to="/questionnaire" onClick={() => setMobileOpen(false)} className="inline-flex justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg">
+                  Get Started
+                </Link>
               </li>
             </ul>
           </motion.div>

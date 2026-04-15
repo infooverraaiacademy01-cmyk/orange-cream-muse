@@ -9,6 +9,8 @@ import ResultsSection from "@/components/ResultsSection";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import PrivacyPopup from "@/components/PrivacyPopup";
+import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -24,6 +26,8 @@ const Index = () => {
       <TrustSection />
       <CTASection />
       <Footer />
+      <PrivacyPopup />
+      <Chatbot />
     </div>
   );
 };
