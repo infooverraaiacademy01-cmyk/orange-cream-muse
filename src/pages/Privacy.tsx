@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 
 const Privacy = () => (
+  <PageTransition>
   <div className="min-h-screen bg-background">
     <div className="bg-primary text-primary-foreground py-8">
       <div className="max-w-3xl mx-auto px-5 sm:px-6">
@@ -76,6 +78,7 @@ const Privacy = () => (
       </p>
     </div>
   </div>
+  </PageTransition>
 );
 
 export default Privacy;

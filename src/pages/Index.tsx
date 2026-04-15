@@ -8,11 +8,13 @@ import ServicesSection from "@/components/ServicesSection";
 import LearningFormat from "@/components/LearningFormat";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ResultsSection from "@/components/ResultsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import PrivacyPopup from "@/components/PrivacyPopup";
 import Chatbot from "@/components/Chatbot";
+import PageTransition from "@/components/PageTransition";
 
 const Index = () => {
   const location = useLocation();
@@ -24,27 +26,29 @@ const Index = () => {
         const el = document.getElementById(scrollTo);
         el?.scrollIntoView({ behavior: "smooth" });
       }, 100);
-      // Clear the state so it doesn't re-scroll
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <ValueSection />
-      <WhoWeSupport />
-      <ServicesSection />
-      <LearningFormat />
-      <WhyChooseUs />
-      <ResultsSection />
-      <TrustSection />
-      <CTASection />
-      <Footer />
-      <PrivacyPopup />
-      <Chatbot />
-    </div>
+    <PageTransition>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <ValueSection />
+        <WhoWeSupport />
+        <ServicesSection />
+        <LearningFormat />
+        <WhyChooseUs />
+        <ResultsSection />
+        <TestimonialsSection />
+        <TrustSection />
+        <CTASection />
+        <Footer />
+        <PrivacyPopup />
+        <Chatbot />
+      </div>
+    </PageTransition>
   );
 };
 
