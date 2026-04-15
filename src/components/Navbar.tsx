@@ -22,12 +22,12 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-24 sm:h-28 lg:h-32">
         <a href="/" className="flex items-center gap-2 group">
           <img
             src={logo}
             alt="B-Panacea Educational Consult"
-            className="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-20 sm:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -56,21 +56,9 @@ const Navbar = () => {
           className="md:hidden flex flex-col gap-1.5 p-2 relative w-10 h-10 items-center justify-center"
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-[7px]" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
-              mobileOpen ? "opacity-0 scale-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
-            }`}
-          />
+          <span className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${mobileOpen ? "opacity-0 scale-0" : ""}`} />
+          <span className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
         </button>
       </div>
 
@@ -85,27 +73,14 @@ const Navbar = () => {
           >
             <ul className="flex flex-col px-6 py-8 gap-5">
               {navItems.map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <a
-                    href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors"
-                  >
+                <motion.li key={item} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
+                  <a href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMobileOpen(false)} className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors">
                     {item}
                   </a>
                 </motion.li>
               ))}
               <li>
-                <a
-                  href="#contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="inline-flex mt-3 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg"
-                >
+                <a href="#contact" onClick={() => setMobileOpen(false)} className="inline-flex mt-3 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg">
                   Book a Tutor
                 </a>
               </li>

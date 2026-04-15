@@ -1,14 +1,11 @@
 import AnimatedSection from "./AnimatedSection";
-import { Shield } from "lucide-react";
 
 const TrustSection = () => (
   <section className="py-20 sm:py-28 relative">
     <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-background" />
     <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12 text-center relative">
       <AnimatedSection>
-        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-8">
-          <Shield className="w-8 h-8 text-primary" />
-        </div>
+        <span className="text-5xl mb-6 block">🛡️</span>
         <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-7 text-balance">
           Support You Can Trust
         </h2>

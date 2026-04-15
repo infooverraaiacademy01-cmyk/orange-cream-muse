@@ -1,24 +1,23 @@
 import AnimatedSection from "./AnimatedSection";
-import { Users, Monitor, TrendingUp } from "lucide-react";
 
 const values = [
   {
-    icon: Users,
+    number: "01",
     title: "One-to-One Personalised Learning",
     desc: "Every session is tailored to your child's unique needs, strengths, and goals.",
-    gradient: "from-primary/10 to-primary/5",
+    accentColor: "border-primary",
   },
   {
-    icon: Monitor,
+    number: "02",
     title: "Virtual & Physical Classes",
     desc: "Flexible learning options — online from anywhere or face-to-face in the comfort of your home.",
-    gradient: "from-accent/15 to-accent/5",
+    accentColor: "border-accent",
   },
   {
-    icon: TrendingUp,
+    number: "03",
     title: "Real Academic Improvement",
     desc: "Focused tutoring that delivers measurable progress and builds lasting confidence.",
-    gradient: "from-primary/10 to-accent/5",
+    accentColor: "border-primary",
   },
 ];
 
@@ -36,11 +35,11 @@ const ValueSection = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {values.map((v, i) => (
           <AnimatedSection key={v.title} delay={i * 0.15}>
-            <div className="card-premium p-7 sm:p-9 h-full group">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${v.gradient} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                <v.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary mb-3">{v.title}</h3>
+            <div className={`card-premium p-7 sm:p-9 h-full group border-l-4 ${v.accentColor}`}>
+              <span className="font-display text-5xl font-bold text-accent/20 group-hover:text-accent/40 transition-colors duration-500">
+                {v.number}
+              </span>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary mb-3 mt-4">{v.title}</h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{v.desc}</p>
             </div>
           </AnimatedSection>
