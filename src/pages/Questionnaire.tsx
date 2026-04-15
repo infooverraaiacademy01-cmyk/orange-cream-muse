@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
+import logo from "@/assets/logo.png";
 import logo from "@/assets/logo.png";
 
 const serviceOptions = [
@@ -88,6 +90,7 @@ New Client Questionnaire Submission
   }
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6 sm:py-8">
