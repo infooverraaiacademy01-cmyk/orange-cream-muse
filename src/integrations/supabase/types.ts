@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      feedback: {
+        Row: {
+          additional_info: string | null
+          created_at: string
+          email: string | null
+          id: string
+          learner_name: string | null
+          learner_year_group: string | null
+          learning_goals: string | null
+          parent_name: string
+          phone: string | null
+          session_preference: string | null
+          status: string
+          subjects: string | null
+        }
+        Insert: {
+          additional_info?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          learner_name?: string | null
+          learner_year_group?: string | null
+          learning_goals?: string | null
+          parent_name: string
+          phone?: string | null
+          session_preference?: string | null
+          status?: string
+          subjects?: string | null
+        }
+        Update: {
+          additional_info?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          learner_name?: string | null
+          learner_year_group?: string | null
+          learning_goals?: string | null
+          parent_name?: string
+          phone?: string | null
+          session_preference?: string | null
+          status?: string
+          subjects?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
