@@ -26,7 +26,7 @@ const Navbar = () => {
         <a href="/" className="flex items-center gap-2 group">
           <img
             src={logo}
-            alt="B-Panacea Educational Consult"
+            alt="B-Panacea Education"
             className="h-20 sm:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
