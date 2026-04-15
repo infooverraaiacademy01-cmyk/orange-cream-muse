@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import logo from "@/assets/logo.png";
-import logo from "@/assets/logo.png";
 
 const serviceOptions = [
   { id: "sen", label: "Special Needs (SEN) Tuition" },

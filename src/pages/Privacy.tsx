@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 
 const Privacy = () => (
-  <div className="min-h-screen bg-background">
+  <PageTransition>
     <div className="bg-primary text-primary-foreground py-8">
       <div className="max-w-3xl mx-auto px-5 sm:px-6">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground mb-4 transition-colors">
