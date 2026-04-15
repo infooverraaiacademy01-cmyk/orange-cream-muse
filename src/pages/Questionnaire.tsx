@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import PageTransition from "@/components/PageTransition";
+import logo from "@/assets/logo.png";
 import PageTransition from "@/components/PageTransition";
 import logo from "@/assets/logo.png";
 
@@ -38,9 +41,31 @@ const Questionnaire = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Build mailto body
+    
+    // Save to database
+    try {
+      await supabase.from("feedback").insert({
+        parent_name: formData.parentName,
+        email: formData.email,
+        phone: formData.phone,
+        learner_name: formData.learnerName || null,
+        learner_year_group: formData.ageGroup,
+        subjects: [
+          ...formData.services.map((s) => serviceOptions.find((o) => o.id === s)?.label),
+          formData.instrument ? `Instrument: ${formData.instrument}` : null,
+          formData.subjects || null,
+        ].filter(Boolean).join(", "),
+        learning_goals: formData.goals,
+        session_preference: formData.availability,
+        additional_info: formData.specialRequirements || null,
+      });
+    } catch (err) {
+      // silently continue — email fallback
+    }
+
+    // Also open email
     const body = `
 New Client Questionnaire Submission
 
