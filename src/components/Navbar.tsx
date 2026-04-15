@@ -22,12 +22,12 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-18 sm:h-22">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24">
         <a href="/" className="flex items-center gap-2 group">
           <img
             src={logo}
             alt="B-Panacea Educational Consult"
-            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
