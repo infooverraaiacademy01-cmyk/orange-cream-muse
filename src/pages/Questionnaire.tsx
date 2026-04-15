@@ -298,6 +298,7 @@ New Client Questionnaire Submission
         </form>
       </div>
     </div>
+    </PageTransition>
   );
 };
 
