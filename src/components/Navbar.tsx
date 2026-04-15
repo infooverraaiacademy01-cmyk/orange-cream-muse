@@ -15,18 +15,28 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-background"}`}>
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-16 sm:h-20">
-        <a href="/" className="flex items-center gap-2">
-          <img src={logo} alt="B-Panacea Educational Consult" className="h-10 sm:h-12 w-auto object-contain" />
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-background/98 backdrop-blur-xl shadow-[0_1px_20px_-6px_rgba(0,0,0,0.1)]"
+          : "bg-background"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-18 sm:h-22">
+        <a href="/" className="flex items-center gap-2 group">
+          <img
+            src={logo}
+            alt="B-Panacea Educational Consult"
+            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <li key={item}>
               <a
                 href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="text-sm font-medium tracking-wide text-foreground/70 hover:text-primary transition-colors duration-200"
+                className="relative text-sm font-semibold tracking-wide text-foreground/60 hover:text-primary transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item}
               </a>
@@ -36,19 +46,31 @@ const Navbar = () => {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold tracking-wide hover:bg-dark-blue-light transition-colors duration-200 shadow-md"
+          className="hidden md:inline-flex px-7 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold tracking-wide hover:bg-dark-blue-light transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
         >
           Book a Tutor
         </a>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 relative w-10 h-10 items-center justify-center"
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
+              mobileOpen ? "rotate-45 translate-y-[7px]" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
+              mobileOpen ? "opacity-0 scale-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${
+              mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
+            }`}
+          />
         </button>
       </div>
 
@@ -58,22 +80,32 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
-            <ul className="flex flex-col px-6 py-6 gap-4">
-              {navItems.map((item) => (
-                <li key={item}>
+            <ul className="flex flex-col px-6 py-8 gap-5">
+              {navItems.map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                >
                   <a
                     href={`#${item.toLowerCase().replace(" ", "-")}`}
                     onClick={() => setMobileOpen(false)}
-                    className="text-lg font-medium text-foreground/80 hover:text-primary"
+                    className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors"
                   >
                     {item}
                   </a>
-                </li>
+                </motion.li>
               ))}
               <li>
-                <a href="#contact" onClick={() => setMobileOpen(false)} className="inline-flex mt-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold">
+                <a
+                  href="#contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex mt-3 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg"
+                >
                   Book a Tutor
                 </a>
               </li>
