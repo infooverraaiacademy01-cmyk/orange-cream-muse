@@ -5,8 +5,6 @@ import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import PageTransition from "@/components/PageTransition";
 import logo from "@/assets/logo.png";
-import PageTransition from "@/components/PageTransition";
-import logo from "@/assets/logo.png";
 
 const serviceOptions = [
   { id: "sen", label: "Special Needs (SEN) Tuition" },
