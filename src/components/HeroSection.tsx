@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const stats = [
@@ -32,14 +33,19 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide hover:bg-dark-blue-light transition-all duration-400 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1">
-                Book a Tutor
+              <Link to="/questionnaire" className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide hover:bg-dark-blue-light transition-all duration-400 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1">
+                Get Started
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
-              <a href="#about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-primary/15 text-primary font-bold text-sm tracking-wide hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
-                Get Started
+              </Link>
+              <a
+                href="https://www.cognitoforms.com/BPanaceaLimited/BPanaceaLimitedTutorApplication"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-primary/15 text-primary font-bold text-sm tracking-wide hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+              >
+                Register for Work
               </a>
             </motion.div>
 
