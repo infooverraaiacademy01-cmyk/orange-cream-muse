@@ -40,16 +40,16 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24 md:h-24 lg:h-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24 lg:h-28">
         <Link to="/" className="flex items-center group shrink-0 min-w-0">
           <img
             src={navbarLogo}
             alt="B-Panacea Education"
-            className="w-[210px] sm:w-[250px] md:w-[300px] lg:w-[340px] xl:w-[380px] h-auto object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]"
+            className="w-[220px] sm:w-[260px] md:w-[320px] lg:w-[340px] xl:w-[380px] h-auto object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>
 
-        <ul className="hidden md:flex items-center gap-8 lg:gap-10">
+        <ul className="hidden lg:flex items-center gap-8 lg:gap-10">
           {navItems.map((item) => (
             <li key={item.label}>
               <button
@@ -62,7 +62,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="https://www.cognitoforms.com/BPanaceaLimited/BPanaceaLimitedTutorApplication"
             target="_blank"
@@ -81,7 +81,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 relative w-10 h-10 items-center justify-center"
+          className="lg:hidden flex flex-col gap-1.5 p-2 relative w-10 h-10 items-center justify-center"
           aria-label="Toggle menu"
         >
           <span className={`block w-6 h-[2px] bg-foreground rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
@@ -97,11 +97,16 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-background border-b border-border"
+            className="lg:hidden overflow-hidden bg-background border-b border-border"
           >
             <ul className="flex flex-col px-6 py-8 gap-5">
               {navItems.map((item, i) => (
-                <motion.li key={item.label} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
+                <motion.li
+                  key={item.label}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                >
                   <button
                     onClick={() => scrollToSection(item.target)}
                     className="text-xl font-semibold text-foreground/80 hover:text-primary transition-colors"
@@ -120,7 +125,11 @@ const Navbar = () => {
                 >
                   Register for Work
                 </a>
-                <Link to="/questionnaire" onClick={() => setMobileOpen(false)} className="inline-flex justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg">
+                <Link
+                  to="/questionnaire"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg"
+                >
                   Get Started
                 </Link>
               </li>
