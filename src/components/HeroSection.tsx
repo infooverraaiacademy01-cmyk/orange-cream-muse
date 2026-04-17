@@ -11,6 +11,7 @@ const stats = [
 const HeroSection = () => {
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen flex items-center pt-28 sm:pt-32 overflow-hidden">
+      {/* Background Decorations */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl -z-10" />
@@ -32,13 +33,18 @@ const HeroSection = () => {
               Expert one-to-one tutoring for pupils aged 5–18, delivered virtually and in-person, tailored to every learner's needs.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="mt-10 flex flex-wrap items-center gap-4">
-              <Link to="/questionnaire" className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide hover:bg-dark-blue-light transition-all duration-400 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1">
+              <Link 
+                to="/questionnaire" 
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide hover:bg-dark-blue-light transition-all duration-400 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1"
+              >
                 Get Started
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
+              
               <a
                 href="https://www.cognitoforms.com/BPanaceaLimited/BPanaceaLimitedTutorApplication"
                 target="_blank"
@@ -49,6 +55,7 @@ const HeroSection = () => {
               </a>
             </motion.div>
 
+            {/* Desktop Stats */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="mt-12 hidden sm:flex items-center gap-8 sm:gap-12">
               {stats.map((s, i) => (
                 <div key={s.label} className="flex items-center gap-8 sm:gap-12">
@@ -62,6 +69,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
+          {/* Hero Image Section */}
           <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2 }} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/15">
               <img src={heroBg} alt="UK tutor helping a school pupil with homework" className="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" width={1280} height={960} />
@@ -77,6 +85,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
+        {/* Mobile Stats */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="mt-10 flex sm:hidden items-center justify-between">
           {stats.map((s, i) => (
             <div key={s.label} className="flex items-center gap-4">
