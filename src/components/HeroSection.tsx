@@ -25,7 +25,7 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-bold leading-[1.1] tracking-tight text-primary text-balance">
-              Unlock Every Child's rue{" "}
+              Unlock Every Child's True{" "}
               <span className="italic text-accent">Potential.</span>
             </motion.h1>
 
