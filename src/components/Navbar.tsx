@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import navbarLogo from "@/assets/logo-navbar.png";
 
 const navItems = [
   { label: "About", target: "about" },
@@ -40,12 +40,12 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-16 sm:h-20 md:h-24">
-        <Link to="/" className="flex items-center group shrink-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24 md:h-24 lg:h-28">
+        <Link to="/" className="flex items-center group shrink-0 min-w-0">
           <img
-            src={logo}
+            src={navbarLogo}
             alt="B-Panacea Education"
-            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-[210px] sm:w-[250px] md:w-[300px] lg:w-[340px] xl:w-[380px] h-auto object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>
 
