@@ -40,12 +40,12 @@ const Navbar = () => {
           : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-20 sm:h-24 md:h-28 lg:h-32">
-        <Link to="/" className="flex items-center group -my-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-16 sm:h-20 md:h-24">
+        <Link to="/" className="flex items-center group shrink-0">
           <img
             src={logo}
             alt="B-Panacea Education"
-            className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
