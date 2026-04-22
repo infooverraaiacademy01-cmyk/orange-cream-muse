@@ -5,8 +5,9 @@ import {
   Calendar, AlertCircle, CheckCircle2, Eye, Star, Users, MessageSquare, Inbox, ShieldAlert
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
+
+const ADMIN_EMAIL = "info@bpanacea.co.uk";
 
 type Feedback = {
   id: string; parent_name: string; email: string | null; phone: string | null;
