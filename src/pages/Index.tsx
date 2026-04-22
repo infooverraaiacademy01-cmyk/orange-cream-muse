@@ -9,11 +9,13 @@ import LearningFormat from "@/components/LearningFormat";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ResultsSection from "@/components/ResultsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ReviewsSection from "@/components/ReviewsSection";
 import GallerySection from "@/components/GallerySection";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import PrivacyPopup from "@/components/PrivacyPopup";
+import SubscribePopup from "@/components/SubscribePopup";
 import Chatbot from "@/components/Chatbot";
 import PageTransition from "@/components/PageTransition";
 
@@ -43,11 +45,13 @@ const Index = () => {
         <WhyChooseUs />
         <ResultsSection />
         <TestimonialsSection />
+        <ReviewsSection />
         <GallerySection />
         <TrustSection />
         <CTASection />
         <Footer />
         <PrivacyPopup />
+        <SubscribePopup />
         <Chatbot />
       </div>
     </PageTransition>
