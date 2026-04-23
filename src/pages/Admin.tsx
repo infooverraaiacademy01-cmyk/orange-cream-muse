@@ -80,22 +80,7 @@ const Admin = () => {
     e.preventDefault();
     setAuthError("");
     setAuthLoading(true);
-    // Try sign in first
-    let { error } = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password });
-    // If account doesn't exist yet, create it then sign in
-    if (error && /invalid login credentials/i.test(error.message)) {
-      const { error: signupErr } = await supabase.auth.signUp({
-        email: ADMIN_EMAIL,
-        password,
-        options: { emailRedirectTo: `${window.location.origin}/admin` },
-      });
-      if (signupErr) {
-        setAuthLoading(false);
-        return setAuthError(signupErr.message);
-      }
-      const retry = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password });
-      error = retry.error;
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password });
     setAuthLoading(false);
     if (error) return setAuthError("Incorrect password");
   };
