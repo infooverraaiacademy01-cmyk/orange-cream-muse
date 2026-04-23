@@ -280,6 +280,63 @@ const ReviewsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Share dialog (fallback when native share isn't available, or for desktop users) */}
+      {shareOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-foreground/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-4"
+          onClick={() => setShareOpen(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            className="bg-card rounded-3xl p-6 sm:p-8 w-full max-w-md shadow-2xl border border-border"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div>
+                <h3 className="font-display text-xl font-bold text-primary">Share & ask for a review</h3>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Send this to families who've worked with us — every review helps us reach more learners.
+                </p>
+              </div>
+              <button
+                onClick={() => setShareOpen(false)}
+                className="p-2 -mr-2 -mt-2 rounded-lg hover:bg-secondary text-muted-foreground"
+                aria-label="Close"
+              >
+                <XIcon className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2.5 mb-4">
+              {shareTargets.map((t) => (
+                <a
+                  key={t.name}
+                  href={t.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex flex-col items-center gap-2 py-4 rounded-2xl font-bold text-xs transition-all hover:-translate-y-0.5 ${t.color}`}
+                >
+                  {t.icon}
+                  {t.name}
+                </a>
+              ))}
+            </div>
+
+            <div className="rounded-2xl bg-secondary/50 border border-border p-3">
+              <p className="text-xs text-muted-foreground line-clamp-2 mb-2 break-all">{fullShareMessage}</p>
+              <button
+                onClick={copyLink}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-dark-blue-light transition-all"
+              >
+                {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                {copied ? "Copied!" : "Copy link & message"}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };
