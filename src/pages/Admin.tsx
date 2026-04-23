@@ -129,9 +129,19 @@ const Admin = () => {
                 className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
               />
               {authError && (
-                <p className="text-sm text-destructive flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4" /> {authError}
-                </p>
+                <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-3 space-y-2">
+                  <p className="text-sm text-destructive flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <span>{authError}</span>
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleRetry}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive hover:text-destructive/80 transition-colors"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" /> Try again
+                  </button>
+                </div>
               )}
               <button
                 type="submit" disabled={authLoading}
