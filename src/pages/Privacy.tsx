@@ -158,7 +158,7 @@ const Privacy = () => (
           <br />
           <strong>Phone:</strong> +44 7774 587556
           <br />
-          <strong>Address:</strong> 163 Brownhill Road, London, England, SE6 2BQ
+          <strong>Address:</strong> Brownhill Road, London, England, SE6 2BQ
         </p>
       </div>
     </div>
