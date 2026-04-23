@@ -78,7 +78,7 @@ const Footer = () => (
                 info@bpanacea.co.uk
               </a>
             </li>
-            <li>163 Brownhill Road, London, England, SE6 2BQ</li>
+            <li> Brownhill Road, London, England, SE6 2BQ</li>
           </ul>
           <div className="mt-4 flex items-center gap-3">
             <Link to="/privacy" className="text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors underline">
@@ -91,7 +91,7 @@ const Footer = () => (
               title="Admin"
               className="text-[10px] text-primary-foreground/15 hover:text-primary-foreground/60 transition-colors"
             >
-              ·
+              ·....
             </Link>
           </div>
         </div>
