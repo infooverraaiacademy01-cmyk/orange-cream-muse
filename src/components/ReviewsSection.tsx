@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, Send, MessageSquarePlus } from "lucide-react";
+import { Star, Quote, Send, MessageSquarePlus, Share2, Copy, Check, X as XIcon } from "lucide-react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
