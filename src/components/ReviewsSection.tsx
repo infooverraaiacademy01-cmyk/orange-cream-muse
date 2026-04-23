@@ -167,13 +167,22 @@ const ReviewsSection = () => {
             <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
               Real feedback from families across the UK who trust B-Panacea Education.
             </p>
-            <button
-              onClick={() => setShowForm((v) => !v)}
-              className="mt-7 inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-accent-foreground font-bold text-sm tracking-wide hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 hover:-translate-y-0.5"
-            >
-              <MessageSquarePlus className="w-4 h-4" />
-              {showForm ? "Close form" : "Leave a Review"}
-            </button>
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+              <button
+                onClick={() => setShowForm((v) => !v)}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-accent-foreground font-bold text-sm tracking-wide hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 hover:-translate-y-0.5"
+              >
+                <MessageSquarePlus className="w-4 h-4" />
+                {showForm ? "Close form" : "Leave a Review"}
+              </button>
+              <button
+                onClick={handleShareClick}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-card border-2 border-primary/15 text-primary font-bold text-sm tracking-wide hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-md"
+              >
+                <Share2 className="w-4 h-4" />
+                Share & Ask for Reviews
+              </button>
+            </div>
           </div>
         </AnimatedSection>
 
