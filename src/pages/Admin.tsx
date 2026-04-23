@@ -82,7 +82,26 @@ const Admin = () => {
     setAuthLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password });
     setAuthLoading(false);
-    if (error) return setAuthError("Incorrect password");
+    if (!error) return;
+    const msg = (error.message || "").toLowerCase();
+    if (msg.includes("invalid login credentials")) {
+      setAuthError("Wrong password. Please check the password and try again.");
+    } else if (msg.includes("email not confirmed")) {
+      setAuthError("Admin email is not confirmed yet. Contact support to activate the account.");
+    } else if (msg.includes("user not found") || msg.includes("does not exist") || msg.includes("no user")) {
+      setAuthError("Admin account does not exist yet. It needs to be created before you can sign in.");
+    } else if (msg.includes("rate limit") || msg.includes("too many")) {
+      setAuthError("Too many attempts. Please wait a minute before trying again.");
+    } else if (msg.includes("network") || msg.includes("failed to fetch")) {
+      setAuthError("Network problem. Check your connection and try again.");
+    } else {
+      setAuthError(error.message);
+    }
+  };
+
+  const handleRetry = () => {
+    setAuthError("");
+    setPassword("");
   };
 
   const handleLogout = async () => {
@@ -110,9 +129,19 @@ const Admin = () => {
                 className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
               />
               {authError && (
-                <p className="text-sm text-destructive flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4" /> {authError}
-                </p>
+                <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-3 space-y-2">
+                  <p className="text-sm text-destructive flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <span>{authError}</span>
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleRetry}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive hover:text-destructive/80 transition-colors"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" /> Try again
+                  </button>
+                </div>
               )}
               <button
                 type="submit" disabled={authLoading}
