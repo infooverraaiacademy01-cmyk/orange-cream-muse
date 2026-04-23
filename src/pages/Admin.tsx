@@ -82,7 +82,26 @@ const Admin = () => {
     setAuthLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password });
     setAuthLoading(false);
-    if (error) return setAuthError("Incorrect password");
+    if (!error) return;
+    const msg = (error.message || "").toLowerCase();
+    if (msg.includes("invalid login credentials")) {
+      setAuthError("Wrong password. Please check the password and try again.");
+    } else if (msg.includes("email not confirmed")) {
+      setAuthError("Admin email is not confirmed yet. Contact support to activate the account.");
+    } else if (msg.includes("user not found") || msg.includes("does not exist") || msg.includes("no user")) {
+      setAuthError("Admin account does not exist yet. It needs to be created before you can sign in.");
+    } else if (msg.includes("rate limit") || msg.includes("too many")) {
+      setAuthError("Too many attempts. Please wait a minute before trying again.");
+    } else if (msg.includes("network") || msg.includes("failed to fetch")) {
+      setAuthError("Network problem. Check your connection and try again.");
+    } else {
+      setAuthError(error.message);
+    }
+  };
+
+  const handleRetry = () => {
+    setAuthError("");
+    setPassword("");
   };
 
   const handleLogout = async () => {
